@@ -15,9 +15,9 @@
    <header class="header">
         <nav class="navbar">
         <a href="index.html">Home</a>
-        <a href="about.html">About</a>
-        <a href="contact.html">Contact</a>
-        <a href="weather.html">Weather</a>
+        <a href="about.html">Destination</a>
+        <a href="contact.html">About</a>
+        <a href="weather.html">Contact</a>
       </nav>
     </header>
         <div class="slide">
