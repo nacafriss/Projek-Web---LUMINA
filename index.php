@@ -7,18 +7,22 @@
     <title>Document</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="css/style.css">
-
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&family=Dancing+Script:wght@400..700&display=swap" rel="stylesheet">
 </head>
 
 <body>
     <div class="container">
         <header class="header">
+            <div class="logo">LUMINA</div>
             <nav class="navbar">
-                <a href="index.html">Home</a>
-                <a href="about.html">Destination</a>
-                <a href="contact.html">About</a>
-                <a href="weather.html">Contact</a>
+                <a href="index.php">Home</a>
+                <a href="destination.php">Destination</a>
+                <a href="#about">About</a>
+                <a href="contact.php">Contact</a>
             </nav>
+            <div class="kiri"><a class="book" href="login.php">Book Now</a></div>
         </header>
         <div class="slide">
             <div class="item" style="background-image: url(https://plus.unsplash.com/premium_photo-1668883189682-7212bebf2f5b?q=80&w=1374&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D);">
@@ -70,6 +74,11 @@
             <button class="prev"><i class="fa-solid fa-arrow-left"></i></button>
             <button class="next"><i class="fa-solid fa-arrow-right"></i></button>
         </div>
+
+    </div>
+
+    <div class="footer">
+
 
     </div>
     <script src="main.js"></script>
