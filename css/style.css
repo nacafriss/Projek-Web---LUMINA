@@ -279,6 +279,8 @@ body{
 
 .dest-link:hover .arrow {
     transform: translateX(5px);
+}
+
 .footer {
     background: #143754;
     padding: 3rem 1.5rem;
