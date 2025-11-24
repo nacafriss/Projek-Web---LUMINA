@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/contact.css">
+        <link rel="stylesheet" href="css/top.destination.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -25,7 +26,7 @@
                 <a href="#about">About</a>
                 <a href="contact.php">Contact</a>
             </nav>
-            <div class="kiri"><a class="book" href="login.php">Book Now</a></div>
+            <div class="kiri"><a class="book" href="logic/redirect.dashboard.php">Book Now</a></div>
         </header>
         <div class="slide">
             <div class="item" style="background-image: url(https://plus.unsplash.com/premium_photo-1668883189682-7212bebf2f5b?q=80&w=1374&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D);">
@@ -109,6 +110,7 @@
     </div>
     <script src="js/main.js"></script>
     <script src="js/contact.js"></script>
+     <script src="js/top.destination.js"></script>
 </body>
 
 </html>
