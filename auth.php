@@ -58,7 +58,6 @@ include "components/components.php";
 			</form>
 		</div>
 	</div>
-	<?php footer(); ?>
 
 </body>
 
