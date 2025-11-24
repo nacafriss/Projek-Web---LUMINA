@@ -57,8 +57,10 @@ textarea.contact-inputs {
 .submit {
     top:20px;
     text-decoration: none;
-    display: inline-block;
-    padding: 0.8rem 2.5rem;
+    display: inline-block; 
+    width: 100%;
+    padding: 10px;
+    margin: 10px auto;
     border-radius: 999px;
     margin-block-start: 1rem; 
     background: #19446B;

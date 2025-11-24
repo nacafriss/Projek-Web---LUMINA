@@ -70,10 +70,10 @@ function listAlert($status)
       alert("danger", "Error: Konfirmasi Password tidak sama");
       break;
     case "duplikat":
-      alert("danger", "Error: Username sudah terdaftar");
+      alert("danger", "Error: Email sudah terdaftar");
       break;
-    case "username_tidak_ditemukan":
-      alert("danger", "Error: Akun user tidak ditemukan");
+    case "email_tidak_ditemukan":
+      alert("danger", "Error: Akun email tidak ditemukan");
       break;
     case "password_salah":
       alert("danger", "Error: Password salah");
@@ -90,5 +90,29 @@ function listAlert($status)
     default:
       break;
   }
+}
+?>
+
+
+<?php
+function navbar()
+{
+?>
+  <nav class="navbar navbar-expand-lg bg-white shadow-sm sticky-top">
+    <div class="container">
+      <a class="navbar-brand" href="index.php">🍞 Bakery Bliss</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        </ul>
+        <form action="logic/auth.logic.php?action=logout" method="post" class="d-flex">
+          <button class="btn btn-danger" type="submit" name="logout">Logout</button>
+        </form>
+      </div>
+    </div>
+  </nav>
+<?php
 }
 ?>

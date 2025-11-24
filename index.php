@@ -17,6 +17,7 @@ $result = $stmt->get_result();
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/contact.css">
+        <link rel="stylesheet" href="css/top.destination.css">
     <link rel="stylesheet" href="css/about.css">
     <link rel="stylesheet" href="css/features.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -36,7 +37,7 @@ $result = $stmt->get_result();
                 <a href="#about">About</a>
                 <a href="contact.php">Contact</a>
             </nav>
-            <div class="kiri"><a class="book" href="login.php">Book Now</a></div>
+            <div class="kiri"><a class="book" href="logic/redirect.dashboard.php">Book Now</a></div>
         </header>
         <div class="slide">
             <?php while ($data = $result->fetch_assoc()):?>
@@ -152,6 +153,7 @@ $result = $stmt->get_result();
 
     <script src="js/main.js"></script>
     <script src="js/contact.js"></script>
+     <script src="js/top.destination.js"></script>
 </body>
 
 </html>
