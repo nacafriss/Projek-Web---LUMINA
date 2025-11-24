@@ -11,7 +11,7 @@
             <div class="logo">LUMINA</div>
             <nav class="navbar">
                 <a href="index.php">Home</a>
-                <a href="destination.php">Destination</a>
+                <a href="destinations.php">Destinations</a>
                 <a href="#about">About</a>
                 <a href="contact.php">Contact</a>
             </nav>

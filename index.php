@@ -33,9 +33,9 @@ $result = $stmt->get_result();
             <div class="logo">LUMINA</div>
             <nav class="navbar">
                 <a href="index.php">Home</a>
-                <a href="destination.php">Destination</a>
+                <a href="destinations.php">Destinations</a>
                 <a href="#about">About</a>
-                <a href="contact.php">Contact</a>
+                <a href="#contact">Contact</a>
             </nav>
             <div class="kiri"><a class="book" href="logic/redirect.dashboard.php">Book Now</a></div>
         </header>
