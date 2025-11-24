@@ -94,3 +94,43 @@ function listAlert($status)
 }
 ?>
 
+<?php
+
+function cardDestination($data) {
+    ?>
+    <div class="destination-card">
+        <div class="dest-img" style="background-image: url('<?= htmlspecialchars($data['cover_image']) ?>');"></div>
+
+        <div class="dest-content">
+            <h3><?= htmlspecialchars($data['title']) ?></h3>
+            <p><?= htmlspecialchars($data['description']) ?></p>
+
+            <a href="#" class="dest-link">
+                <span>Explore</span>
+                <span class="arrow">→</span>
+            </a>
+        </div>
+    </div>
+    <?php
+}
+?>
+
+<?php
+function cardDestinationAdmin($data) {
+    ?>
+    <div class="admin-card">
+        <div class="admin-img" style="background-image: url('<?= htmlspecialchars($data['cover_image']) ?>');"></div>
+        
+        <div class="admin-body">
+            <h4><?= htmlspecialchars($data['title']) ?></h4>
+            <p><?= htmlspecialchars($data['location']) ?></p>
+
+            <div class="admin-actions">
+                <a href="../admin/update.destination.php?id=<?=$data['id']?>" class="btn-edit">Edit</a>
+                <a href="../logic/delete.logic.php?id=<?=$data['id']?>" class="btn-delete" onclick="return confirm('Yakin hapus?');">Delete</a>
+              </div>
+        </div>
+    </div>
+    <?php
+}
+?>
