@@ -14,30 +14,59 @@ include "../components/components.php";
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard Admin</title>
+    <?= head("Dashboard Admin");  ?>
+    <link rel="stylesheet" href="../css/admin.dashboard.css">
 </head>
 <body>
- <main class="container">
-    <div class="d-flex justify-content-between align-items-center mb-4">
-      <h2>Selamat Datang, <?= htmlspecialchars($_SESSION['name']) ?></h2>
-      <a href="add.destination.php"><button type="button" class="btn btn-primary shadow-sm">Tambah Destination</button></a>
-    </div>
 
-    <section class="d-flex flex-wrap gap-4 mt-4 justify-content-start">
-      <?php
-      $sql = "SELECT * FROM destinations";
-      $result = mysqli_query($koneksi, $sql);
-      if (mysqli_num_rows($result) == 0) {
-        echo "<p>Belum ada menu roti </p>";
-      }
-      while ($row = mysqli_fetch_assoc($result)) {
-        cardMenu($row);  // Menggunakan komponen cardMenu()
-      }
-      ?>
-    </section>
-  </main>
+<div class="admin-wrapper">
+    <header class="admin-header">
+        <h2>Dashboard Admin</h2>
+        <div class="header-right">
+            <span class="admin-name">Halo, <?= htmlspecialchars($_SESSION['name']) ?> 👋</span>
 
-  <?php footer() ?>
+            <a href="add.destination.php" class="btn-main">+ Tambah Destination</a>
+
+            <form action="../logic/auth.logic.php?action=logout" method="post">
+                <button class="btn-logout" type="submit">Logout</button>
+            </form>
+        </div>
+    </header>
+
+    <main class="content-area">
+        <h3 class="section-title">Daftar Destination</h3>
+
+        <div class="cards-container">
+            <?php
+            $sql = "SELECT * FROM destinations";
+            $result = mysqli_query($koneksi, $sql);
+
+            if (mysqli_num_rows($result) == 0) {
+                echo "<p class='empty'>Belum ada destinasi!</p>";
+            }
+
+            while ($row = mysqli_fetch_assoc($result)) {
+                ?>
+                <div class="card-item">
+                    <img src="../uploads/<?= $row['image'] ?>" class="card-img">
+                    <div class="card-body">
+                        <h4><?= $row['name'] ?></h4>
+                        <p><?= $row['description'] ?></p>
+
+                        <div class="card-actions">
+                            <a href="update.destination.php?id=<?= $row['id'] ?>" class="btn-main-small">Edit</a>
+                            <a href="delete.destination.php?id=<?= $row['id'] ?>" class="btn-danger-small">Hapus</a>
+                        </div>
+                    </div>
+                </div>
+                <?php
+            }
+            ?>
+        </div>
+    </main>
+</div>
+
+<?php footer(); ?>
+
 </body>
-
 </html>

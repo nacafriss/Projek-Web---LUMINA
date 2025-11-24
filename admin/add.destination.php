@@ -15,13 +15,12 @@ if (!isset($_SESSION['logined']) || $_SESSION['role'] !== "admin") {
   <?= head("Tambah Destination");  ?>
 </head>
 <body>
-
   <main class="container my-5">
     <div class="d-flex justify-content-between align-items-center mb-4">
       <h2>Tambah Data Destination</h2>
     </div>
     <div class="card p-4 shadow-sm">
-      <form action="logic/add.logic.php?action=add" method="post">
+      <form action="../logic/add.logic.php" method="post">
         <div class="mb-3">
           <label for="title" class="form-label fw-bold">Title</label>
           <input name="title" type="text" class="form-control" id="nama" placeholder="Contoh: Raja Ampat" required>
