@@ -17,6 +17,7 @@ include "../components/components.php";
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <?= head("Dashboard Admin");  ?>
   <link rel="stylesheet" href="../css/admin.dashboard.css">
+    <link rel="stylesheet" href="../css/footer.css">
 </head>
 
 <body>
@@ -38,18 +39,31 @@ include "../components/components.php";
     <main class="content-area">
       <h3 class="section-title">Daftar Destination</h3>
 
-      <section class="d-flex flex-wrap gap-4 mt-4 justify-content-start">
-        <?php
-        $sql = "SELECT id, title, location, cover_image FROM destinations";
-        $result = mysqli_query($koneksi, $sql);
-        if (mysqli_num_rows($result) == 0) {
-          echo "<p>Belum ada destination </p>";
-        }
-        while ($row = mysqli_fetch_assoc($result)) {
-          cardDestinationAdmin($row);  // Menggunakan komponen cardMenu()
-        }
-        ?>
-      </section>
+        <div class="cards-container">
+            <?php
+            $sql = "SELECT * FROM Destinations";
+            $result = mysqli_query($koneksi, $sql);
+
+            if (mysqli_num_rows($result) == 0) {
+                echo "<p class='empty'>Belum ada destinasi!</p>";
+            }
+
+            while ($row = mysqli_fetch_assoc($result)){
+                ?>
+                <div class="card-item">
+                    <img src="<?= $row['cover_image'] ?>" class="card-img">
+                    <div class="card-body">
+                        <h4><?= $row['title'] ?></h4>
+                        <p><?= $row['description'] ?></p>
+
+                        <div class="card-actions">
+                            <a href="update.destination.php?id=<?= $row['id'] ?>" class="btn-main-small">Edit</a>
+                            <a href="delete.destination.php?id=<?= $row['id'] ?>" class="btn-danger-small">Hapus</a>
+                        </div>
+                    </div>
+                </div>
+            <?php }?>
+        </div>
     </main>
   </div>
 

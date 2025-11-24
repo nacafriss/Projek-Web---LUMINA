@@ -30,7 +30,7 @@ if ($action == "register") {
         exit;
     }
 
-    $sql = "INSERT INTO users(uuid,name, email, phone, password, role) VALUES ('$uuid','$name', '$email', '$phone', '$password', 'admin')";
+    $sql = "INSERT INTO users(uuid,name, email, phone, password, role) VALUES ('$uuid','$name', '$email', '$phone', '$password', 'user')";
     $result = mysqli_query($koneksi, $sql);
 
     if ($result) {
