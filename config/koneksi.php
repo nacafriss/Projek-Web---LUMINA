@@ -1,9 +1,9 @@
 <?php 
 
-$localhost = "";
-$username = "";
+$localhost = "localhost";
+$username = "root";
 $password = "";
-$db = "";
+$db = "wisata_db";
 
 $koneksi = mysqli_connect($db, $username, $password, $db);
 if(!$koneksi){
