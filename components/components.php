@@ -20,11 +20,27 @@ function head($title)
 <?php
 function footer()
 { ?>
-  <!-- JS Bootstrap -->
+  <div class="footer">
+    <div class="footer-content">
+      <div class="footer-nav">
+        <a href="index.php">Home</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </div>
+
+      <div class="footer-social">
+        <a href="#"><i class="fa-brands fa-instagram"></i></a>
+        <a href="#"><i class="fa-brands fa-facebook"></i></a>
+        <a href="#"><i class="fa-brands fa-twitter"></i></a>
+      </div>
+
+      <p class="footer-copy">© 2025 LUMINA. All Rights Reserved.</p>
+    </div>
+  </div>
+
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
   <!-- Untuk UX menghapus status urlnya || Silahkan uncomment kalo mau make, gak usah biarain juga boleh -->
   <script>
-    // Hapus ?status=... dari URL setelah toast tampil
     if (window.location.search.includes("status=")) {
       window.history.replaceState({}, document.title, window.location.pathname);
     }
