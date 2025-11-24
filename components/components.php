@@ -12,6 +12,7 @@ function head($title)
     crossorigin="anonymous">
 
   <link rel="stylesheet" href="../css/style.css">
+  
 <?php
 }
 ?>
@@ -77,26 +78,3 @@ function listAlert($status)
 }
 ?>
 
-
-<?php
-function navbar()
-{
-?>
-  <nav class="navbar navbar-expand-lg bg-white shadow-sm sticky-top">
-    <div class="container">
-      <a class="navbar-brand" href="index.php">🍞 Bakery Bliss</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        </ul>
-        <form action="logic/auth.logic.php?action=logout" method="post" class="d-flex">
-          <button class="btn btn-danger" type="submit" name="logout">Logout</button>
-        </form>
-      </div>
-    </div>
-  </nav>
-<?php
-}
-?>
