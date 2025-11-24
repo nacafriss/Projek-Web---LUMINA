@@ -70,6 +70,7 @@ textarea.contact-inputs {
     color: white;
     cursor: pointer;
      align-items: center;
+     border: none;
     transition: all 0.15s ease-in;
   }
   .submit:hover {
