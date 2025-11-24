@@ -16,6 +16,7 @@ include "../components/components.php";
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <?= head("Dashboard Admin");  ?>
     <link rel="stylesheet" href="../css/admin.dashboard.css">
+    <link rel="stylesheet" href="../css/footer.css">
 </head>
 <body>
 
@@ -38,19 +39,19 @@ include "../components/components.php";
 
         <div class="cards-container">
             <?php
-            $sql = "SELECT * FROM destinations";
+            $sql = "SELECT * FROM Destinations";
             $result = mysqli_query($koneksi, $sql);
 
             if (mysqli_num_rows($result) == 0) {
                 echo "<p class='empty'>Belum ada destinasi!</p>";
             }
 
-            while ($row = mysqli_fetch_assoc($result)) {
+            while ($row = mysqli_fetch_assoc($result)){
                 ?>
                 <div class="card-item">
-                    <img src="../uploads/<?= $row['image'] ?>" class="card-img">
+                    <img src="<?= $row['cover_image'] ?>" class="card-img">
                     <div class="card-body">
-                        <h4><?= $row['name'] ?></h4>
+                        <h4><?= $row['title'] ?></h4>
                         <p><?= $row['description'] ?></p>
 
                         <div class="card-actions">
@@ -59,9 +60,7 @@ include "../components/components.php";
                         </div>
                     </div>
                 </div>
-                <?php
-            }
-            ?>
+            <?php }?>
         </div>
     </main>
 </div>
