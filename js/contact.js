@@ -10,7 +10,7 @@
           .then(response => response.json())
           .then(result => {
               if (result.success) {
-                  window.location.href = "thanks.html"; 
+                  window.location.href = "../index.php"; 
               } else {
                   alert("Submission failed. Please try again.");
               }
