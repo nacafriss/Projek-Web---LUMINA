@@ -60,6 +60,7 @@ if ($action == "login") {
     $_SESSION['name'] = $user['name'];
     $_SESSION['email'] = $user['email'];
     $_SESSION['role'] = $user['role'];
+    $_SESSION['email'] = $user['email'];
 
  if ($_SESSION['role'] === "admin") {
     header("location: ../admin/dashboard.php");

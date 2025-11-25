@@ -13,12 +13,7 @@ html, body {
     display: flex;
     flex-direction: column;
 }
-body {
-    margin: 0;
-    background: #2E587D; 
-    font-family: 'Jost', sans-serif;
-    color: #fff;
-}
+
 
 .admin-wrapper {
     min-height: 100vh;
@@ -262,7 +257,7 @@ body {
         .sidebar {
             width: 240px;
             height: 100vh;
-            background: #133B5C;
+           background: linear-gradient(135deg, #2E587D 0%, #133B5C 100%);
             position: fixed;
             top: 0;
             left: 0;
@@ -320,7 +315,7 @@ body {
             backdrop-filter: blur(8px);
             position: fixed;
             top: 0;
-            left: 300px;
+            left: 250px;
             display: flex;
             align-items: center;
             padding: 0 30px;
@@ -331,7 +326,7 @@ body {
 
         .content {
             margin-left: 300px;
-            padding: 100px 40px;
+            padding: 50px 40px;
         }
 
         .content h2 {

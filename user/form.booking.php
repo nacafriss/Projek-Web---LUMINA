@@ -3,13 +3,12 @@ require "../config/koneksi.php";
 include "../components/components.php";
 require "../components/session_protect.php";
 
-// Check if user is logged in
 if (!isset($_SESSION['logined'])) {
     header("location: ../auth.php?action=login&status=forbidden");
     exit;
 }
 
-// $destination_id = isset($_GET['destination_id']) ? $_GET['destination_id'] : '';
+$destination_id = isset($_GET['destination_id']) ? $_GET['destination_id'] : '';
 
 $destinations_query = "SELECT id, title, price FROM destinations ORDER BY title ASC";
 $destinations_result = mysqli_query($koneksi, $destinations_query);
@@ -28,8 +27,8 @@ $destinations_result = mysqli_query($koneksi, $destinations_query);
     <div class="page-header">
       <nav aria-label="breadcrumb" class="breadcrumb-custom">
         <ol class="breadcrumb mb-2">
-          <li class="breadcrumb-item"><a href="../index.php" style="color: black; text-decoration: none;">Home</a></li>
-          <li class="breadcrumb-item"><a href="dashboard.php" style="color: black; text-decoration: none;">Dashboard</a></li>
+          <li class="breadcrumb-item"><a href="../index.php" style="color: white; text-decoration: none;">Home</a></li>
+          <li class="breadcrumb-item"><a href="dashboard.php" style="color: white; text-decoration: none;">Dashboard</a></li>
           <li class="breadcrumb-item active" aria-current="page">Booking</li>
         </ol>
       </nav>

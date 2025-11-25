@@ -26,7 +26,7 @@ include "../components/components.php";
         <div class="sidebar-title">Admin Panel</div>
 
         <a href="dashboard.php" class="side-link">Dashboard</a>
-        <a href="bookings.php" class="side-link">Bookings</a>    
+        <a href="usersbook.php" class="side-link">Bookings</a>    
         <a href="users.php" class="side-link">Users</a>
 
         <form action="../logic/auth.logic.php?action=logout" method="post">
@@ -52,8 +52,9 @@ include "../components/components.php";
             $sql = "SELECT * FROM destinations";
             $result = mysqli_query($koneksi, $sql);
 
-            if (mysqli_num_rows($result) == 0) {
-                echo "<p>Belum ada destinasi</p>";
+            if (mysqli_num_rows($result) == 0) { ?>
+            <p style="color: black">Belum ada destinasi</p>
+            <?php
             }
 
             while ($row = mysqli_fetch_assoc($result)) {

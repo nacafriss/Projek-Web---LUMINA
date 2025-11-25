@@ -75,7 +75,7 @@ if (!isset($_SESSION['logined']) || $_SESSION['role'] !== "admin") {
         <div class="form-section">
           <div class="mb-4"> 
             <label for="maps_embed" class="form-label">Maps Embed</label> 
-            <input name="maps_embed" type="url" class="form-control" id="maps_embed" placeholder="" required> 
+            <input name="maps_embed" type="text" class="form-control" id="maps_embed" placeholder="" required> 
             <small class="text-muted">Link lokasi</small>
           </div>
 
