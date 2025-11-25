@@ -12,6 +12,7 @@ function head($title)
     crossorigin="anonymous">
 
   <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/card.css">
   
 <?php
 }
@@ -95,25 +96,25 @@ function listAlert($status)
 ?>
 
 <?php
-
 function cardDestination($data) {
-    ?>
-    <div class="destination-card">
-        <div class="dest-img" style="background-image: url('<?= htmlspecialchars($data['cover_image']) ?>');"></div>
-
-        <div class="dest-content">
-            <h3><?= htmlspecialchars($data['title']) ?></h3>
-            <p><?= htmlspecialchars($data['description']) ?></p>
-
-            <a href="#" class="dest-link">
-                <span>Explore</span>
-                <span class="arrow">→</span>
-            </a>
+?>
+<div class="card-container card-destination">
+    <div class="card-box" style="
+        background-image: url('<?= htmlspecialchars($data['cover_image']) ?>');
+        background-size: cover;
+        background-position: center;
+    ">
+        <div class="card-content">
+            <strong class="dest-title"><?= htmlspecialchars($data['title']) ?></strong>
+            <p class="dest-location"><?= htmlspecialchars($data['location']) ?></p>
+            <a href="detail.php" class="detail-btn">Details →</a>
         </div>
     </div>
-    <?php
+</div>
+<?php
 }
 ?>
+
 
 <?php
 function cardDestinationAdmin($data) {
