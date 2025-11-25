@@ -3,9 +3,9 @@
   background-attachment: fixed;
 } */
 
-/* body {
-  background: #1a3353; 
-} */
+body {
+  background: #1d3557; 
+}
 
 /* body {
   background: radial-gradient(
@@ -18,7 +18,7 @@
 } */
 
 
-body {
+/* body {
   background: linear-gradient(
     to bottom,
     #1d3557 0%,
@@ -27,7 +27,7 @@ body {
     #eef2f6 100%
   );
   background-attachment: fixed;
-}
+} */
 
 
 .search-container {
