@@ -1,0 +1,95 @@
+/* TABLE */
+.table-custom {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0 10px;
+    margin-top: 25px;
+    font-family: "Poppins", sans-serif;
+}
+
+.table-custom thead th {
+    background: #1d3557;
+    color: white;
+    padding: 14px;
+    text-align: left;
+    font-size: 0.9rem;
+    letter-spacing: 0.5px;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+
+.table-custom tbody tr {
+    background: #ffffff;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    transition: 0.25s;
+}
+
+.table-custom tbody tr:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 14px rgba(0,0,0,0.12);
+}
+
+.table-custom td {
+    padding: 14px;
+    border-bottom: none;
+    font-size: 0.9rem;
+}
+
+/* STATUS BADGE */
+.status-badge {
+    padding: 6px 12px;
+    border-radius: 12px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: white;
+    letter-spacing: 0.3px;
+    display: inline-block;
+}
+
+/* Colors use theme accent blue #1d3557 */
+.status-pending {
+    background: #ffb703;
+    color: #1d3557;
+}
+
+.status-approved {
+    background: #2a9d8f;
+}
+
+.status-declined {
+    background: #e63946;
+}
+
+/* SELECT + BUTTON */
+.form-select {
+    padding: 6px 10px;
+    border-radius: 6px;
+    border: 1px solid #1d3557;
+    background: white;
+    color: #1d3557;
+    font-size: 0.85rem;
+}
+
+.btn-primary {
+    background: #1d3557;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 6px;
+    transition: 0.2s;
+}
+
+.btn-primary:hover {
+    background: #254b7a;
+}
+
+/* DETAIL BUTTON */
+.btn-info {
+    background: #457b9d;
+    color: rgb(14, 13, 13);
+    padding: 6px 12px;
+    border-radius: 6px;
+}
+
+.btn-info:hover {
+    background: #2f5a79;
+}

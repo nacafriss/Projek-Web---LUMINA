@@ -7,12 +7,12 @@ if (!isset($_SESSION['logined']) || $_SESSION['role'] !== "admin") {
     exit;
 }
 
-if (isset($_POST['booking_id']) && isset($_POST['status'])) {
+if (isset($_POST['booking_id'], $_POST['status'])) {
+
     $id = intval($_POST['booking_id']);
     $status = $_POST['status'];
 
     $allowed = ['pending', 'approved', 'declined'];
-
     if (!in_array($status, $allowed)) {
         die("Status tidak valid.");
     }
@@ -22,7 +22,7 @@ if (isset($_POST['booking_id']) && isset($_POST['status'])) {
 
     header("location: ../admin/usersbook.php?status_updated=1");
     exit;
-} else {
-    header("location: ../admin/usersbook.php?error=invalid_form");
-    exit;
 }
+
+header("location: ../admin/usersbook.php?error=invalid_form");
+exit;

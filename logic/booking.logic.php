@@ -11,7 +11,7 @@ if (!isset($_SESSION['logined'])) {
 // Check if form is submitted
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // Get form data
-    $uuid = mysqli_real_escape_string($koneksi, $_POST['id']);
+    $uuid = mysqli_real_escape_string($koneksi, $_SESSION['uuid']);
     $destination_id = mysqli_real_escape_string($koneksi, $_POST['destination_id']);
     $booking_date = mysqli_real_escape_string($koneksi, $_POST['booking_date']);
     $pax = mysqli_real_escape_string($koneksi, $_POST['pax']);
@@ -21,6 +21,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $total_amount = mysqli_real_escape_string($koneksi, $_POST['total_amount']);
     $notes = mysqli_real_escape_string($koneksi, $_POST['notes']);
     
+    $qUser = mysqli_query($koneksi, "SELECT id FROM users WHERE uuid = '$uuid'");
+    if (!$qUser || mysqli_num_rows($qUser) == 0) {
+        header("location: ../user/form.booking.php?status=error&message=" . urlencode("User tidak ditemukan"));
+        exit;
+    }
+
+    $user = mysqli_fetch_assoc($qUser);
+    $user_id = $user['id'];
+
     // Validate data
     if (empty($destination_id) || empty($booking_date) || empty($pax) || empty($contact_name) || empty($contact_email) || empty($contact_phone)) {
         header("location: ../user/form.booking.php?status=error&message=" . urlencode("Semua field wajib diisi"));
@@ -42,14 +51,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     
     // Insert booking into database with status 'pending'
     $sql = "INSERT INTO bookings (user_id, destination_id, booking_date, created_at, pax, contact_name, contact_email, contact_phone, total_amount, status, notes) 
-            VALUES ('$uuid', '$destination_id', '$booking_date', NOW(), '$pax', '$contact_name', '$contact_email', '$contact_phone', '$total_amount', 'pending', '$notes')";
+            VALUES ('$user_id', '$destination_id', '$booking_date', NOW(), '$pax', '$contact_name', '$contact_email', '$contact_phone', '$total_amount', 'pending', '$notes')";
     
     if (mysqli_query($koneksi, $sql)) {
         // Get the booking ID
         $booking_id = mysqli_insert_id($koneksi);
         
         // Redirect to success page or index
-        header("location: ../index.php?status=success&message=" . urlencode("Booking berhasil! Menunggu konfirmasi admin"));
+        header("location: ../user/dashboard.php?status=success&message=" . urlencode("Booking berhasil! Menunggu konfirmasi admin"));
         exit;
     } else {
         header("location: ../user/form.booking.php?status=error&message=" . urlencode("Gagal melakukan booking: " . mysqli_error($koneksi)));

@@ -9,6 +9,8 @@ require "../config/koneksi.php";
 include "../components/components.php";
 ?>
 
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -17,6 +19,7 @@ include "../components/components.php";
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Users & Bookings</title>
     <link rel="stylesheet" href="../css/admin.dashboard.css">
+    <link rel="stylesheet" href="../css/usersbook.css">
 </head>
 
 <body>
@@ -94,9 +97,7 @@ include "../components/components.php";
                             </td>
 
                             <td>
-                                <a href="detail.booking.php?id=<?= $row['booking_id'] ?>"
-                                    class="btn btn-sm btn-info">Detail</a>
-                                <form action="../logic/update.booking.status.php" method="post" class="d-flex" style="gap: 8px;">
+                                <form action="../logic/update.status.php" method="post" class="d-flex" style="gap: 8px;">
                                     <input type="hidden" name="booking_id" value="<?= $row['booking_id'] ?>">
 
                                     <select name="status" class="form-select">
@@ -105,7 +106,7 @@ include "../components/components.php";
                                         <option value="declined" <?= $row['status'] == "declined" ? "selected" : "" ?>>Declined</option>
                                     </select>
 
-                                    <button type="submit" class="btn btn-primary btn-sm">Update</button>
+                                    <button type="submit" class="btn btn-primary btn-sm" name="update">Update</button>
                                 </form>
                             </td>
                         </tr>
