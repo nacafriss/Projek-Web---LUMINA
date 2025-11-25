@@ -1,4 +1,4 @@
-<?php 
+<?php
 session_start();
 if (!isset($_SESSION['logined']) || $_SESSION['role'] !== "user") {
     header("location: ../auth.php?action=login&status=forbidden");
@@ -8,28 +8,24 @@ if (!isset($_SESSION['logined']) || $_SESSION['role'] !== "user") {
 include "../config/koneksi.php";
 include "../components/components.php";
 
+// Ambil UUID user
 $uuid = $_SESSION['uuid'];
 
-$sql = "
-    SELECT b.*
+// Ambil user_id dari tabel users
+$qUser = mysqli_query($koneksi, "SELECT id FROM users WHERE uuid = '$uuid'");
+$user = mysqli_fetch_assoc($qUser);
+$user_id = $user['id'];   // <-- FIX UTAMA
+
+// Query booking user + join destinasi
+$q = "
+    SELECT b.*, d.title AS destination_name 
     FROM bookings b
-    JOIN users u ON b.user_id = u.id
-    WHERE u.uuid = '$uuid'
+    JOIN destinations d ON b.destination_id = d.id
+    WHERE b.user_id = $user_id
+    ORDER BY b.booking_date DESC
 ";
-
-$result = mysqli_query($koneksi, $sql);
-
-if (!$result) {
-    echo "Query error: " . mysqli_error($koneksi);
-} elseif (mysqli_num_rows($result) == 0) {
-    echo "<p>Belum ada destinasi</p>";
-} else {
-    while ($row = mysqli_fetch_assoc($result)) {
-        cardDestination($row); // memanggil fungsi untuk menampilkan card
-    }
-}
+$hasil = mysqli_query($koneksi, $q);
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -44,8 +40,6 @@ if (!$result) {
     <!-- SIDEBAR -->
     <div class="sidebar">
         <div class="sidebar-title">User Panel</div>
-        
-        <a href="dashboard.php" class="side-link">Dashboard</a>
         <a href="../index.php" class="side-link">Home</a>
 
         <form action="../logic/auth.logic.php?action=logout" method="post">
@@ -60,25 +54,48 @@ if (!$result) {
 
     <!-- MAIN CONTENT -->
     <main class="content">
-        <div class="d-flex justify-content-between align-items-center">
-            <h2>Dashboard User</h2>
-
-            <a href="form.booking.php" class="add-btn">+ Tambah Booking</a>
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h2>Booking Kamu</h2>
+            <a href="form.booking.php" class="add-btn">+ Buat Booking</a>
         </div>
 
-        <section class="menu-grid">
-            <?php
+        <div class="booking-grid">
 
-            if (mysqli_num_rows($result) == 0) {
-                echo "<p>Belum ada destinasi</p>";
-            }
+            <?php if (mysqli_num_rows($hasil) == 0): ?>
+                <p>Belum ada booking...</p>
+            <?php else: ?>
+                <?php while ($row = mysqli_fetch_assoc($hasil)): ?>
+                    <div class="booking-card">
+                        <div class="booking-header">
+                            <h4><?= htmlspecialchars($row['destination_name']) ?></h4>
+                            <span class="booking-date">
+                                <?= date("d M Y", strtotime($row['booking_date'])) ?>
+                            </span>
+                        </div>
 
-            while ($row = mysqli_fetch_assoc($result)) {
-                cardDestination($row);
-            }
-            ?>
-        </section>
+                        <div class="booking-body">
+                            <p>Pax: <?= $row['pax'] ?></p>
+                            <p>Total: Rp <?= number_format($row['total_amount'], 0, ',', '.') ?></p>
+
+                            <p class="status 
+            <?= $row['status'] == 'pending' ? 'pending' : ($row['status'] == 'confirmed' ? 'confirmed' : 'cancelled') ?>">
+                                <?= ucfirst($row['status']) ?>
+                            </p>
+                        </div>
+
+                        <div class="booking-actions">
+                            <a href="booking.detail.php?id=<?= $row['id'] ?>" class="btn-view">
+                                Detail
+                            </a>
+                        </div>
+                    </div>
+
+                <?php endwhile; ?>
+            <?php endif; ?>
+
+        </div>
     </main>
+
 </body>
 
 </html>
