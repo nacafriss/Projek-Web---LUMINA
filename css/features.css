@@ -2,13 +2,18 @@
     font-family: "Lato", Sans-serif;
     padding: 90px 80px;
     text-align: center;
-    background: #f8f9fa;
+    background: #1f3b57;
+    width: 100%;
+    min-height: 850px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .features-title {
     font-size: 2.8rem;
     margin-bottom: 50px;
-    color: #1f3b57;
+    color: #f8f9fa;
 }
 
 .features-container {
@@ -19,34 +24,39 @@
 }
 
 .feature-box {
-    background: white;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(6px);
+    text-align: center;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+
     padding: 30px 25px;
     width: 260px;
     border-radius: 16px;
-    box-shadow: 0 6px 25px rgba(0,0,0,0.08);
+    box-shadow: 0 6px 25px rgba(0, 0, 0, 0.08);
     transition: 0.3s ease;
 }
 
 .feature-box:hover {
     transform: translateY(-5px);
-    box-shadow: 0 12px 35px rgba(0,0,0,0.12);
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.12);
 }
 
 .feature-box i {
     font-size: 2.2rem;
-    color: #2a669b;
+    color: #f8f9fa;
     margin-bottom: 15px;
 }
 
 .feature-box h3 {
     font-size: 1.3rem;
     margin-bottom: 10px;
-    color: #1f3b57;
+    color: #f8f9fa;
     font-weight: 600;
 }
 
 .feature-box p {
     font-size: 0.95rem;
+    color: aliceblue;
     opacity: 0.8;
     line-height: 1.4;
 }

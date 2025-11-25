@@ -1,3 +1,8 @@
+/* Footer Styles - Fixed to stay at bottom */
+footer {
+    flex-shrink: 0;
+    margin-top: auto;
+}
 
 .footer {
     background: #143754;
@@ -5,11 +10,12 @@
     color: #e1ecf4;
     font-family: "Lato", sans-serif;
     width: 100%;
+    margin-top: auto;
 }
 
 .footer-content {
     max-width: 950px;
-    margin: 0 auto;
+    margin: auto;
     text-align: center;
 }
 
@@ -53,7 +59,6 @@
     font-size: 0.9rem;
     opacity: 0.7;
 }
-
 
 /* Responsive */
 @media (max-width: 480px) {

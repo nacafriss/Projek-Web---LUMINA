@@ -1,57 +1,38 @@
-/* body {
-  background: linear-gradient(160deg, #224b79 0%, #1d3557 40%, #0d1b2a 100%);
-  background-attachment: fixed;
-} */
-
 body {
-  background: #1d3557; 
+    background: #2c4b76;
+    margin: 0;
+    padding: 0;
+    font-family: 'Lato', sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;;
 }
 
-/* body {
-  background: radial-gradient(
-    circle at center,
-    #2E587D 0%,
-    #1f4b70 50%,
-    #19446B 90%
-  );
-  background-attachment: fixed;
-} */
-
-
-/* body {
-  background: linear-gradient(
-    to bottom,
-    #1d3557 0%,
-    #2a4a73 30%,
-    #3e5f88 55%,
-    #eef2f6 100%
-  );
-  background-attachment: fixed;
-} */
-
-
+/* SEARCH CONTAINER */
 .search-container {
     display: flex;
     justify-content: center;
     margin-top: 130px;
+    margin-bottom: 40px;
+    padding: 0 20px;
 }
 
 .search-box {
     background: white;
     padding: 12px 20px;
     width: 500px;
-    max-width: 80%;
+    max-width: 100%;
     border-radius: 40px;
     display: flex;
     align-items: center;
     gap: 10px;
-    box-shadow: 0px 4px 20px rgba(0,0,0,0.15);
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.15);
     transition: 0.3s ease;
 }
 
 .search-box:focus-within {
     transform: scale(1.03);
-    box-shadow: 0px 5px 25px rgba(0,0,0,0.25);
+    box-shadow: 0px 5px 25px rgba(0, 0, 0, 0.25);
 }
 
 #searchInput {
@@ -60,19 +41,176 @@ body {
     width: 100%;
     font-size: 18px;
     padding-left: 5px;
+    background: transparent;
 }
 
 .search-btn {
-    background: #1A237E;
+    background: #1d3557;
     border: none;
     outline: none;
     color: white;
     padding: 10px 13px;
     border-radius: 50%;
     cursor: pointer;
-    transition: .25s ease;
+    transition: 0.25s ease;
+    flex-shrink: 0;
 }
 
 .search-btn:hover {
     transform: rotate(10deg) scale(1.1);
+    background: #457b9d;
+}
+
+/* MAIN CONTENT */
+.content {
+    flex: 1 0 auto;
+    max-width: 1400px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 30px 60px;
+}
+
+/* MENU GRID - FIXED RESPONSIVE LAYOUT */
+.menu-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 10px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+/* Ensure cards fill the grid properly */
+.menu-grid > * {
+    width: 100%;
+    height: 100%;
+}
+
+/* NO RESULT MESSAGE */
+#noResult {
+    text-align: center;
+    color: white;
+    display: none;
+    margin-top: 50px;
+    font-size: 1.2rem;
+    font-weight: 500;
+    grid-column: 1 / -1;
+}
+
+/* UTILITY CLASSES */
+.d-flex {
+    display: flex;
+}
+
+.justify-content-between {
+    justify-content: space-between;
+}
+
+.align-items-center {
+    align-items: center;
+}
+
+/* Empty State */
+.content > p {
+    text-align: center;
+    color: white;
+    font-size: 1.3rem;
+    margin-top: 80px;
+    font-weight: 500;
+}
+
+/* RESPONSIVE BREAKPOINTS */
+
+/* Large Desktop */
+@media (max-width: 1400px) {
+    .menu-grid {
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 25px;
+    }
+}
+
+/* Desktop */
+@media (max-width: 1200px) {
+    .menu-grid {
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 20px;
+    }
+    
+    .content {
+        padding: 0 25px 50px;
+    }
+}
+
+/* Tablet */
+@media (max-width: 992px) {
+    .search-container {
+        margin-top: 110px;
+        margin-bottom: 30px;
+    }
+
+    .menu-grid {
+        grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+        gap: 20px;
+    }
+}
+
+/* Mobile Landscape */
+@media (max-width: 768px) {
+    .search-container {
+        margin-top: 100px;
+    }
+
+    .content {
+        padding: 0 20px 40px;
+    }
+
+    .menu-grid {
+        grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+        gap: 18px;
+    }
+
+    .search-box {
+        width: 100%;
+        max-width: 500px;
+    }
+}
+
+/* Mobile Portrait */
+@media (max-width: 576px) {
+    .search-container {
+        margin-top: 90px;
+        margin-bottom: 25px;
+        padding: 0 15px;
+    }
+
+    .content {
+        padding: 0 15px 30px;
+    }
+
+    .menu-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .search-box {
+        padding: 10px 16px;
+    }
+
+    #searchInput {
+        font-size: 16px;
+    }
+
+    .search-btn {
+        padding: 8px 11px;
+    }
+}
+
+/* Extra Small Mobile */
+@media (max-width: 375px) {
+    .search-container {
+        margin-top: 85px;
+    }
+
+    .content {
+        padding: 0 10px 25px;
+    }
 }
