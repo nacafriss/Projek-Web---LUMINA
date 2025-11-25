@@ -107,7 +107,7 @@ function cardDestination($data) {
         <div class="card-content">
             <strong class="dest-title"><?= htmlspecialchars($data['title']) ?></strong>
             <p class="dest-location"><?= htmlspecialchars($data['location']) ?></p>
-            <a href="detail.php" class="detail-btn">Details →</a>
+            <a href="detail.php?id=<?=$data['id']?>" class="detail-btn">Details →</a>
         </div>
     </div>
 </div>

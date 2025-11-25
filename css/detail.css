@@ -1,0 +1,118 @@
+
+.body-detail{
+    color:white;
+    background-color: #1d3557;
+}
+
+.dt-container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 80px auto;
+  font-family: "Poppins", sans-serif;
+}
+
+.dt-hero {
+  display: flex;
+  gap: 25px;
+  margin-top: 100px;
+}
+
+.dt-cover {
+  width: 45%;
+  height: 320px;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+.dt-info {
+  width: 55%;
+  display: flex;
+  flex-direction: column;
+}
+
+.dt-title {
+  font-size: 32px;
+  font-weight: 700;
+}
+
+.dt-description {
+  margin-top: 12px;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.dt-location {
+  margin-top: 15px;
+  font-size: 15px;
+  color: #9cbae4;
+  font-weight: 600;
+}
+
+/* GALLERY */
+.dt-section-title {
+  margin-top: 50px;
+  font-size: 22px;
+  font-weight: 600;
+  border-left: 5px solid #99bdf0;
+  padding-left: 10px;
+}
+.stage {
+  width: 100%;
+  height: 500px;   /* lebih tinggi */
+  position: relative;
+  perspective: 2000px;
+  margin: 40px 0;
+}
+
+.ring {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+  cursor: grab;
+}
+
+.img {
+  position: absolute;
+  width: 320px;          /* lebih besar */
+  height: 220px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 14px;
+  background-size: cover;
+  background-position: center;
+  backface-visibility: hidden;
+  box-shadow: 0 12px 22px #0007;
+}
+
+
+.full-size-hero {
+  width: 100%;
+  max-width: 100%;
+  transform: scale(1); /* pastikan tidak mengecil */
+}
+
+.full-size-wrapper {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+
+.no-gallery {
+    text-align: center;
+    font-size: 1.1rem;
+    color: #555;
+    margin-bottom: 30px;
+}
+
+
+/* MAPS */
+.dt-maps iframe {
+  width: 100%;
+  height: 350px;
+  border: none;
+  border-radius: 12px;
+  margin-top: 15px;
+}
