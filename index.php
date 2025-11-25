@@ -46,7 +46,7 @@ $result = $stmt->get_result();
                     <div class="content">
                         <div class="name"><?= $data['title'] ?></div>
                         <div class="des"><?= $data['description'] ?></div>
-                        <button>Explore</button>
+                        <a href="detail.php?id=<?=$data['id']?>"><button>Explore</button></a>
                     </div>
                 </div>
 
