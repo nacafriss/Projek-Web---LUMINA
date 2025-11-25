@@ -81,10 +81,6 @@ include "../components/components.php";
                 </td>
 
                 <td>
-                    <!-- Lihat booking user -->
-                    <a href="bookings.php?user=<?= $row['id'] ?>" class="btn-small btn-view">
-                        Lihat Booking
-                    </a>
 
                     <!-- Ubah role -->
                     <a 

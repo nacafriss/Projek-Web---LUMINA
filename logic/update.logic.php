@@ -18,6 +18,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $maps_embed  = mysqli_real_escape_string($koneksi, $_POST['maps_embed']);
     $cover_image = mysqli_real_escape_string($koneksi, $_POST['cover_image']);
 
+    // Update data destinasi
     $sql = "UPDATE destinations SET 
                 title='$title',
                 location='$location',
@@ -29,10 +30,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             WHERE id=$id";
 
     if (mysqli_query($koneksi, $sql)) {
-        header("location: ../admin/dashboard.php?status=success&message=Perubahan berhasil disimpan");
+        header("location: ../admin/update.destination.php?status=success&message=Perubahan berhasil disimpan");
         exit;
     } else {
-        header("location: ../admin/edit.destination.php?id=$id&status=error&message=Gagal update");
+        header("location: ../admin/update.destination.php?id=$id&status=error&message=Gagal update");
         exit;
     }
 }
+?>
