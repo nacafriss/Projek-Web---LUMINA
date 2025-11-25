@@ -1,0 +1,57 @@
+.users{
+    color:black;
+} 
+ 
+ .user-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 25px;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgb(0 0 0 / 10%);
+        }
+        .user-table th {
+            background: #133B5C;
+            color: white;
+            padding: 14px;
+        }
+        .user-table td {
+            padding: 14px;
+            border-bottom: 1px solid #e5e5e5;
+        }
+        .badge-role {
+            padding: 6px 10px;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            color: white;
+            font-weight: 600;
+        }
+        .role-user { background: #2E587D; }
+        .role-admin { background: #4CAF50; }
+
+        .btn-small {
+            padding: 6px 10px;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-block;
+        }
+        .btn-view {
+            background: #1F4C73;
+            color: white;
+        }
+        .btn-view:hover { background: #163851; }
+
+        .btn-delete {
+            background: #E53935;
+            color: white;
+        }
+        .btn-delete:hover { background: #b62626; }
+
+        .btn-toggle {
+            background: #FFA726;
+            color: white;
+        }
+        .btn-toggle:hover { background: #e08e1b; }  
