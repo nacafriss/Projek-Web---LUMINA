@@ -1,19 +1,15 @@
 <?php
-session_start();
 require "../config/koneksi.php";
 include "../components/components.php";
 require "../components/session_protect.php";
 
-// Check if user is logged in
 if (!isset($_SESSION['logined'])) {
     header("location: ../auth.php?action=login&status=forbidden");
     exit;
 }
 
-// Get destination_id from URL if available
 $destination_id = isset($_GET['destination_id']) ? $_GET['destination_id'] : '';
 
-// Fetch all destinations for dropdown
 $destinations_query = "SELECT id, title, price FROM destinations ORDER BY title ASC";
 $destinations_result = mysqli_query($koneksi, $destinations_query);
 ?>
@@ -22,7 +18,7 @@ $destinations_result = mysqli_query($koneksi, $destinations_query);
 <html lang="en">
 <head>
   <?= head("Booking Wisata");  ?>
-  <link rel="stylesheet" href="../css/booking.form.css"> 
+  <link rel="stylesheet" href="../css/form.booking.css"> 
   <link rel="stylesheet" href="../css/footer.css">
 </head>
 

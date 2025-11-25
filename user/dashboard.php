@@ -8,9 +8,15 @@ if (!isset($_SESSION['logined']) || $_SESSION['role'] !== "user") {
 include "../config/koneksi.php";
 include "../components/components.php";
 
-$user_id = $_SESSION['uuid'];
+$uuid = $_SESSION['uuid'];
 
-$sql = "SELECT * FROM Bookings WHERE user_id = '$user_id'";
+$sql = "
+    SELECT b.*
+    FROM bookings b
+    JOIN users u ON b.user_id = u.id
+    WHERE u.uuid = '$uuid'
+";
+
 $result = mysqli_query($koneksi, $sql);
 
 if (!$result) {
@@ -19,7 +25,7 @@ if (!$result) {
     echo "<p>Belum ada destinasi</p>";
 } else {
     while ($row = mysqli_fetch_assoc($result)) {
-        cardDestinationAdmin($row); // memanggil fungsi untuk menampilkan card
+        cardDestination($row); // memanggil fungsi untuk menampilkan card
     }
 }
 ?>
@@ -38,8 +44,9 @@ if (!$result) {
     <!-- SIDEBAR -->
     <div class="sidebar">
         <div class="sidebar-title">User Panel</div>
-
+        
         <a href="dashboard.php" class="side-link">Dashboard</a>
+        <a href="../index.php" class="side-link">Home</a>
 
         <form action="../logic/auth.logic.php?action=logout" method="post">
             <button class="logout-btn">Logout</button>
@@ -67,12 +74,11 @@ if (!$result) {
             }
 
             while ($row = mysqli_fetch_assoc($result)) {
-                cardDestinationAdmin($row);
+                cardDestination($row);
             }
             ?>
         </section>
     </main>
-    <?php footer() ?>
 </body>
 
 </html>
