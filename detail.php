@@ -83,7 +83,7 @@ $gallery = mysqli_query($koneksi, $sql_gallery);
 
         <h2 class="dt-section-title">Maps</h2>
         <div class="dt-maps">
-            <?=$data['maps_embed']?>
+            <iframe src="<?=$data['maps_embed']?>" frameborder="0"></iframe>
         </div>
 
 
