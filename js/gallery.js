@@ -1,34 +1,35 @@
 document.addEventListener("DOMContentLoaded", () => {
-
     const imgs = document.querySelectorAll(".img");
     if (imgs.length === 0) return;
 
-    // Set background dari DB
     imgs.forEach((elem) => {
         elem.style.backgroundImage = `url('${elem.dataset.img}')`;
     });
 
-    let total = imgs.length;
+    const total = imgs.length;
+    const imgWidth = 400;   
+    const imgHeight = 300;
+
+    let radius = Math.round(imgWidth / (2 * Math.sin(Math.PI / total)));
+
+    if (total <= 3) radius += 80;
+
     let angle = 360 / total;
-
-    // AUTO radius: makin sedikit gambar makin rapat
-    let radius = 120; 
-    if (total >= 5) radius = 250;
-    if (total >= 8) radius = 400;
-
     let xPos = 0;
 
-    // Start normal, bukan 180
     gsap.set(".ring", { rotationY: 0 });
 
-    // Setiap gambar di posisi lingkaran
+    // posisi tiap gambar
     gsap.set(".img", {
-        rotateY: i => i * -angle,
         transformOrigin: `50% 50% ${radius}px`,
+        rotateY: i => i * -angle,
         z: -radius,
     });
 
-    // DRAG
+    const stage = document.querySelector(".stage");
+    stage.style.height = (imgHeight + 40) + "px";
+
+
     const ring = document.querySelector(".ring");
 
     function dragStart(e) {
@@ -39,7 +40,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     function drag(e) {
-        let x = (e.clientX || e.touches[0].clientX);
+        const x = (e.clientX || e.touches[0].clientX);
         gsap.to(".ring", {
             rotationY: "-=" + ((x - xPos) * 0.5),
         });
@@ -56,5 +57,4 @@ document.addEventListener("DOMContentLoaded", () => {
     window.addEventListener("touchstart", dragStart);
     window.addEventListener("mouseup", dragEnd);
     window.addEventListener("touchend", dragEnd);
-
 });

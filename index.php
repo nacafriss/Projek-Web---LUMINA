@@ -103,7 +103,7 @@ $result = $stmt->get_result();
                     <br>Our goal is simple: to make your journey effortless, inspiring, and truly unforgettable.
                 </p>
 
-                <button>All Destinations</button>
+                <button><a href="destinations.php" style="text-decoration:none; color:white">All Destinations</a></button>
             </div>
 
             <div class="about-right">
