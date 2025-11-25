@@ -14,9 +14,8 @@ $uuid = $_SESSION['uuid'];
 // Ambil user_id dari tabel users
 $qUser = mysqli_query($koneksi, "SELECT id FROM users WHERE uuid = '$uuid'");
 $user = mysqli_fetch_assoc($qUser);
-$user_id = $user['id'];   // <-- FIX UTAMA
+$user_id = $user['id'];  
 
-// Query booking user + join destinasi
 $q = "
     SELECT b.*, d.title AS destination_name 
     FROM bookings b
@@ -39,7 +38,7 @@ $hasil = mysqli_query($koneksi, $q);
 
     <!-- SIDEBAR -->
     <div class="sidebar">
-        <div class="sidebar-title">User Panel</div>
+        <div class="sidebar-title">LUMINA</div>
         <a href="../index.php" class="side-link">Home</a>
 
         <form action="../logic/auth.logic.php?action=logout" method="post">
@@ -81,12 +80,6 @@ $hasil = mysqli_query($koneksi, $q);
             <?= $row['status'] == 'pending' ? 'pending' : ($row['status'] == 'confirmed' ? 'confirmed' : 'cancelled') ?>">
                                 <?= ucfirst($row['status']) ?>
                             </p>
-                        </div>
-
-                        <div class="booking-actions">
-                            <a href="booking.detail.php?id=<?= $row['id'] ?>" class="btn-view">
-                                Detail
-                            </a>
                         </div>
                     </div>
 
