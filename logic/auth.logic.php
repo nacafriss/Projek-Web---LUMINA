@@ -34,9 +34,9 @@ if ($action == "register") {
     $result = mysqli_query($koneksi, $sql);
 
     if ($result) {       
-        header("location:../auth.php?status=berhasil"); //arahkan ke index
+        header("location:../auth.php?status=berhasil"); 
     } else {
-        header("location:../auth.php?status=gagal"); //kalo gagal, kembali ke register. ? = get
+        header("location:../auth.php?status=gagal"); 
     }
 }
 

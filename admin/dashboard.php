@@ -23,7 +23,7 @@ include "../components/components.php";
 
     <!-- SIDEBAR -->
     <div class="sidebar">
-        <div class="sidebar-title">Admin Panel</div>
+        <div class="sidebar-title">LUMINA</div>
 
         <a href="dashboard.php" class="side-link">Dashboard</a>
         <a href="bookings.php" class="side-link">Bookings</a>    
