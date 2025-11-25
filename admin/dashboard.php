@@ -26,7 +26,7 @@ include "../components/components.php";
         <div class="sidebar-title">Admin Panel</div>
 
         <a href="dashboard.php" class="side-link">Dashboard</a>
-        <a href="usersbook.php" class="side-link">Bookings</a>    
+        <a href="bookings.php" class="side-link">Bookings</a>    
         <a href="users.php" class="side-link">Users</a>
 
         <form action="../logic/auth.logic.php?action=logout" method="post">
