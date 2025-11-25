@@ -55,7 +55,7 @@ $gallery = mysqli_query($koneksi, $sql_gallery);
             <img src="<?= $data['cover_image'] ?>" class="dt-cover">
             <div class="dt-info">
                 <h1 class="dt-title"><?= htmlspecialchars($data['title']) ?></h1>
-                <div class="dt-location"><i class="fa-solid fa-location-dot"></i> <?= $data['location'] ?></div>
+                <div class="dt-location"><i class="fa-solid fa-location-dot"></i><?= $data['location'] ?></div>
                 <p class="dt-description"><?= nl2br(htmlspecialchars($data['description'])) ?></p>
 
             </div>
@@ -73,7 +73,8 @@ $gallery = mysqli_query($koneksi, $sql_gallery);
                     // Loop gambar gallery
                     mysqli_data_seek($gallery, 0);
                     while ($g = mysqli_fetch_assoc($gallery)): ?>
-                        <div class="img" data-img="<?= $g['image_path'] ?>"></div>
+                        <div class="img" data-img="<?= $g['image_path'] ?>">
+                        </div>
                     <?php endwhile; ?>
                 </div>
             </div>
@@ -82,7 +83,7 @@ $gallery = mysqli_query($koneksi, $sql_gallery);
 
         <h2 class="dt-section-title">Maps</h2>
         <div class="dt-maps">
-            <?= $data['maps_embed'] ?>
+            <iframe src="<?= $data['maps_embed'] ?>" frameborder="0" width="350" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
 
 

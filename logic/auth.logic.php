@@ -2,7 +2,7 @@
 session_start();
 include "../config/koneksi.php";
 include "../components/components.php";
-$action = $_GET['action'];
+$action = isset($_GET['action']) ? $_GET['action'] : '';
 
 function generate_uuid_v4() {   
     $data = random_bytes(16);
@@ -33,7 +33,7 @@ if ($action == "register") {
     $sql = "INSERT INTO users(uuid,name, email, phone, password, role) VALUES ('$uuid','$name', '$email', '$phone', '$password', 'user')";
     $result = mysqli_query($koneksi, $sql);
 
-    if ($result) {
+    if ($result) {       
         header("location:../auth.php?status=berhasil"); //arahkan ke index
     } else {
         header("location:../auth.php?status=gagal"); //kalo gagal, kembali ke register. ? = get
@@ -58,14 +58,14 @@ if ($action == "login") {
     $_SESSION['uuid'] = $user['uuid'];
     $_SESSION['name'] = $user['name'];
     $_SESSION['role'] = $user['role'];
+
  if ($_SESSION['role'] === "admin") {
     header("location: ../admin/dashboard.php");
 } else {
-    header("location: ../index.php");
+    header("location: ../user/dashboard.php");
 }
 exit;
 
-    exit;
 }
 // LOGOUT
 if ($action == "logout") {

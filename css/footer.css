@@ -1,8 +1,4 @@
-/* Footer Styles - Fixed to stay at bottom */
-footer {
-    flex-shrink: 0;
-    margin-top: auto;
-}
+
 
 .footer {
     background: #143754;
@@ -11,6 +7,7 @@ footer {
     font-family: "Lato", sans-serif;
     width: 100%;
     margin-top: auto;
+    flex-shrink: 0;
 }
 
 .footer-content {

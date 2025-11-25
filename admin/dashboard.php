@@ -1,4 +1,4 @@
-<?php
+<?php 
 session_start();
 if (!isset($_SESSION['logined']) || $_SESSION['role'] !== "admin") {
     header("location: ../auth.php?action=login&status=forbidden");
@@ -11,11 +11,12 @@ include "../components/components.php";
 
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <?= head("Admin Dashboard");  ?>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Admin</title>
     <link rel="stylesheet" href="../css/admin.dashboard.css">
-    <link rel="stylesheet" href="../css/footer.css">
+    
 </head>
 
 <body>
@@ -25,7 +26,7 @@ include "../components/components.php";
         <div class="sidebar-title">Admin Panel</div>
 
         <a href="dashboard.php" class="side-link">Dashboard</a>
-        <a href="bookings.php" class="side-link">Bookings</a>
+        <a href="bookings.php" class="side-link">Bookings</a>    
         <a href="users.php" class="side-link">Users</a>
 
         <form action="../logic/auth.logic.php?action=logout" method="post">
@@ -61,7 +62,6 @@ include "../components/components.php";
             ?>
         </section>
     </main>
-    <?php footer() ?>
+<?php footer()?>
 </body>
-
 </html>
