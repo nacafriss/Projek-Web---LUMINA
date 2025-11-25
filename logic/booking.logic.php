@@ -11,7 +11,7 @@ if (!isset($_SESSION['logined'])) {
 // Check if form is submitted
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // Get form data
-    $uuid = mysqli_real_escape_string($koneksi, $_POST['uuid']);
+    $uuid = mysqli_real_escape_string($koneksi, $_POST['id']);
     $destination_id = mysqli_real_escape_string($koneksi, $_POST['destination_id']);
     $booking_date = mysqli_real_escape_string($koneksi, $_POST['booking_date']);
     $pax = mysqli_real_escape_string($koneksi, $_POST['pax']);
@@ -41,7 +41,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
     
     // Insert booking into database with status 'pending'
-    $sql = "INSERT INTO bookings (uuid, destination_id, booking_date, created_at, pax, contact_name, contact_email, contact_phone, total_amount, status, notes) 
+    $sql = "INSERT INTO bookings (user_id, destination_id, booking_date, created_at, pax, contact_name, contact_email, contact_phone, total_amount, status, notes) 
             VALUES ('$uuid', '$destination_id', '$booking_date', NOW(), '$pax', '$contact_name', '$contact_email', '$contact_phone', '$total_amount', 'pending', '$notes')";
     
     if (mysqli_query($koneksi, $sql)) {

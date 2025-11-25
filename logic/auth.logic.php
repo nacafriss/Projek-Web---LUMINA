@@ -55,8 +55,10 @@ if ($action == "login") {
         exit;
     }
      $_SESSION['logined'] = true;
+     $_SESSION['id'] = $use['id'];
     $_SESSION['uuid'] = $user['uuid'];
     $_SESSION['name'] = $user['name'];
+    $_SESSION['email'] = $user['email'];
     $_SESSION['role'] = $user['role'];
 
  if ($_SESSION['role'] === "admin") {

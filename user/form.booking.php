@@ -1,5 +1,4 @@
 <?php
-session_start();
 require "../config/koneksi.php";
 include "../components/components.php";
 require "../components/session_protect.php";
@@ -10,10 +9,8 @@ if (!isset($_SESSION['logined'])) {
     exit;
 }
 
-// Get destination_id from URL if available
-$destination_id = isset($_GET['destination_id']) ? $_GET['destination_id'] : '';
+// $destination_id = isset($_GET['destination_id']) ? $_GET['destination_id'] : '';
 
-// Fetch all destinations for dropdown
 $destinations_query = "SELECT id, title, price FROM destinations ORDER BY title ASC";
 $destinations_result = mysqli_query($koneksi, $destinations_query);
 ?>
@@ -22,7 +19,7 @@ $destinations_result = mysqli_query($koneksi, $destinations_query);
 <html lang="en">
 <head>
   <?= head("Booking Wisata");  ?>
-  <link rel="stylesheet" href="../css/booking.form.css"> 
+  <link rel="stylesheet" href="../css/form.booking.css"> 
   <link rel="stylesheet" href="../css/footer.css">
 </head>
 
@@ -45,6 +42,7 @@ $destinations_result = mysqli_query($koneksi, $destinations_query);
         
         <!-- Hidden field for user_id -->
         <input type="hidden" name="uuid" value="<?= $_SESSION['uuid'] ?>">
+        <input type="hidden" name="user_id" value="<?= $_SESSION['id'] ?>">
         
         <!-- Destination Selection -->
         <div class="form-section">
@@ -93,7 +91,7 @@ $destinations_result = mysqli_query($koneksi, $destinations_query);
             <label for="contact_email" class="form-label">Email</label> 
             <input name="contact_email" type="email" class="form-control" id="contact_email" 
                    placeholder="Contoh: john@example.com" 
-                   value="<?= htmlspecialchars($_SESSION['email']) ?>" required> 
+                   value="<?= isset($_SESSION['email']) ? htmlspecialchars($_SESSION['email']) : '' ?>" required> 
           </div>
 
           <div class="mb-4"> 
@@ -128,10 +126,10 @@ $destinations_result = mysqli_query($koneksi, $destinations_query);
         <!-- Submit Buttons -->
         <div class="d-flex gap-3 mt-4"> 
           <button type="submit" class="btn btn-primary flex-grow-1">
-            💾 Submit Booking
+            Submit Booking
           </button> 
           <button type="reset" class="btn btn-outline-primary" style="flex: 0 0 auto; min-width: 120px;">
-            🔄 Reset
+            Reset
           </button> 
         </div> 
       </form> 
