@@ -58,10 +58,10 @@
 }
 .stage {
   width: 100%;
-  height: 500px;   /* lebih tinggi */
+  height: 300px; 
   position: relative;
   perspective: 2000px;
-  margin: 40px 0;
+  margin: 30px 0;
 }
 
 .ring {
@@ -74,8 +74,8 @@
 
 .img {
   position: absolute;
-  width: 320px;          /* lebih besar */
-  height: 220px;
+  width: 400px;         
+  height: 300px;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
