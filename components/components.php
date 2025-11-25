@@ -25,8 +25,8 @@ function footer()
     <div class="footer-content">
       <div class="footer-nav">
         <a href="index.php">Home</a>
-        <a href="#about">About</a>
-        <a href="#contact">Contact</a>
+        <a href="index.php #about">About</a>
+        <a href="index.php #contact">Contact</a>
       </div>
 
       <div class="footer-social">
