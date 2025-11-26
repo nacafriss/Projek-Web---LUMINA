@@ -16,7 +16,7 @@ include("components/components.php");
 </head>
 
 <body>
-    <header class="header">
+    <header class="header" style="background-color:#143754">
         <div class="logo">LUMINA</div>
         <nav class="navbar">
             <a href="index.php">Home</a>
