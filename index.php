@@ -71,12 +71,6 @@ $result = $stmt->get_result();
             </div>
 
             <div class="feature-box">
-                <i class="fa-solid fa-star"></i>
-                <h3>Real Trusted Reviews</h3>
-                <p>Every review comes from real travelers to help you decide confidently.</p>
-            </div>
-
-            <div class="feature-box">
                 <i class="fa-solid fa-calendar-check"></i>
                 <h3>Instant Booking</h3>
                 <p>Book attractions, tours, and stays in just one click—no hassle.</p>
@@ -115,10 +109,6 @@ $result = $stmt->get_result();
                     <div class="stat-box">
                         <h2>120+</h2>
                         <p>Curated Destinations</p>
-                    </div>
-                    <div class="stat-box">
-                        <h2>300+</h2>
-                        <p>Local Partners</p>
                     </div>
                 </div>
             </div>
