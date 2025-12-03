@@ -84,7 +84,7 @@ include "../components/components.php";
 
                     <!-- Ubah role -->
                     <a 
-                        href="../logic/user.toggle.role.php?id=<?= $row['id'] ?>" 
+                        href="../logic/user.toggle.php?id=<?= $row['id'] ?>" 
                         class="btn-small btn-toggle"
                         onclick="return confirm('Ubah role user ini?')"
                     >
